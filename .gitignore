@@ -1,0 +1,7 @@
+/__pycache__
+/src/cogs/__pycache__
+/src/functions/__pycache__
+/src/views/__pycache__
+.env
+/src/__pycache__
+.venv

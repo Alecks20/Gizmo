@@ -1,0 +1,25 @@
+version: '3.8'
+
+services:
+
+  bot:
+    restart: always
+    build: .
+    container_name: soar_bot
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+
+  db:
+    restart: always
+    image: mongo:latest
+    container_name: soar_db
+    volumes:
+      - soar_db:/data/db
+    env_file:
+      - .env
+
+volumes:
+  soar_db:
