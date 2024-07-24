@@ -10,6 +10,7 @@ intents = discord.Intents.default()
 intents.message_content = True
 intents.members = True
 bot = discord.Bot(intents=intents)
+
 try:
     testing = os.environ["TESTING"]
 except:
@@ -25,7 +26,10 @@ if testing == "false":
     username = os.environ["MONGO_USER"]
     password = os.environ["MONGO_PASS"]
     mongo = pymongo.MongoClient(f"mongodb://{username}:{password}@mongodb/")
-    db = mongo.sharky
+    db = mongo.soar
 elif testing == "true":
     mongo = pymongo.MongoClient(os.environ["MONGO_TESTING"])
-    db = mongo.sharky_testing
+    db = mongo.soar_testing
+
+#Keys
+giphy_api_key = os.environ["GIPHY_API_KEY"]
