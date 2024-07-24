@@ -23,8 +23,8 @@ except:
 
 #Database Setup
 if testing == "false":
-    username = os.environ["MONGO_USER"]
-    password = os.environ["MONGO_PASS"]
+    username = os.environ["MONGO_INITDB_ROOT_USERNAME"]
+    password = os.environ["MONGO_INITDB_ROOT_PASSWORD"]
     mongo = pymongo.MongoClient(f"mongodb://{username}:{password}@mongodb/")
     db = mongo.soar
 elif testing == "true":
