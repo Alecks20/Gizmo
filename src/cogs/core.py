@@ -13,5 +13,9 @@ class core(commands.Cog):
         embed = discord.Embed(colour=src.embeds.embed_colour, description=f"Pong! Connections take {round(bot.latency * 1000)}ms")
         await ctx.respond(embed=embed)
 
+    @discord.slash_command(name="fetch-embed",description="Grab an embed from the embeds library")
+    async def ping(self, ctx: discord.ApplicationContext, primary: str, category: str, content: str):
+        await ctx.respond(embed=src.embeds.get(primary,category,content))
+
 def setup(bot):
   bot.add_cog(core(bot))

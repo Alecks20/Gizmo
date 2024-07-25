@@ -3,11 +3,16 @@ import os
 from src.config import bot
 import src.config as config
 import asyncio
+import src.functions.ows
 
 @bot.event
 async def on_ready():
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.listening, name="/help"))
     print(f"Connected to Discord API | Logged in as {bot.user}")
+
+@bot.event
+async def on_message(msg):
+  await src.functions.ows.process_ows(msg)
 
 async def main():
   await load_cogs()
